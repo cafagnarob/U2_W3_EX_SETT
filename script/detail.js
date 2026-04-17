@@ -23,7 +23,6 @@ const getDetails = function () {
     })
     .then((data) => {
       console.log("DETTAGLI", data)
-      document.getElementById("spinner-section").classList.add("d-none")
       const row = document.getElementById("details")
       row.innerHTML = `
         <div class="col-12 col-md-6 ">
@@ -42,7 +41,17 @@ const getDetails = function () {
     `
     })
     .catch((err) => {
+      spinner.classList.add("d-none")
       console.log("errore fetch", err)
+      const row = document.getElementById("details")
+      row.innerHTML = `
+            <div class="alert alert-danger d-flex align-items-center" role="alert">
+        <ion-icon name="alert-outline"></ion-icon>
+        <div>
+          ${err}
+        </div>
+      </div>
+          `
     })
 }
 
