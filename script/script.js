@@ -46,7 +46,7 @@ fetch(productUrl, {
   .catch((err) => {
     spinner.classList.add("d-none")
     console.log("ERRORE NELLA FETCH", err)
-    const row = document.getElementById("details")
+    const row = document.getElementById("product-row")
     row.innerHTML = `
             <div class="alert alert-danger d-flex align-items-center" role="alert">
         <ion-icon name="alert-outline"></ion-icon>

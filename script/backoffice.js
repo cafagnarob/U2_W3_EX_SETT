@@ -58,7 +58,17 @@ form.addEventListener("submit", function (e) {
       }
     })
     .catch((err) => {
+      spinner.classList.add("d-none")
       console.log("salvataggio prodotto fallito", err)
+      const row = document.getElementById("details")
+      row.innerHTML = `
+            <div class="alert alert-danger d-flex align-items-center" role="alert">
+        <ion-icon name="alert-outline"></ion-icon>
+        <div>
+          ${err}
+        </div>
+      </div>
+          `
     })
 })
 
@@ -85,7 +95,17 @@ if (productId) {
       price = data.price
     })
     .catch((err) => {
+      spinner.classList.add("d-none")
       console.log("errore nel riempimento del form")
+      const row = document.getElementById("details")
+      row.innerHTML = `
+            <div class="alert alert-danger d-flex align-items-center" role="alert">
+        <ion-icon name="alert-outline"></ion-icon>
+        <div>
+          ${err}
+        </div>
+      </div>
+          `
     })
 }
 
@@ -153,7 +173,17 @@ const deleteProduct = function (id) {
           }
         })
         .catch((err) => {
+          spinner.classList.add("d-none")
           console.log("ERRORE FETCH", err)
+          const row = document.getElementById("details")
+          row.innerHTML = `
+            <div class="alert alert-danger d-flex align-items-center" role="alert">
+        <ion-icon name="alert-outline"></ion-icon>
+        <div>
+          ${err}
+        </div>
+      </div>
+          `
         })
     }
   }
